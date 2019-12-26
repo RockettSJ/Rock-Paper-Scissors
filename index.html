@@ -13,11 +13,21 @@
             }
 
             function playRound(playerSelection, computerSelection) {
-                let result;
-                //Prompt player to make their choice. Case insensitive.
-                let playerChoice = window.prompt("fvdfd");                
+                //Prompt player to make their choice.
+                let playerChoice = window.prompt("Make your choice! Rock, Paper or Scissors?");  
+                
+                //Case insensitive comparison of user input. Maybe rewrite to a switch case?
+                if (playerChoice.toLowerCase() == "rock") {
+                    playerChoice = "Rock";
+                }
+                if (playerChoice.toLowerCase() == "paper") {
+                    playerChoice = "Paper";
+                }          
+                if (playerChoice.toLowerCase() == "scissors") {
+                    playerChoice = "Scissors";
+                }                
 
-                //if playerSelection === && computerSelection === ???
+                let computerChoice = computerPlay();
             }
 
         </script>
