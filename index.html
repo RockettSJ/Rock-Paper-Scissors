@@ -6,6 +6,10 @@
     <body>
         <script>
 
+            //Global variables to track score in game().
+            let playerScore = 0;
+            let computerScore = 0;
+
             function computerPlay() {
                 let choices = ["Rock", "Paper", "Scissors"];
                 let randomChoice = Math.floor(Math.random()*choices.length);
@@ -14,7 +18,7 @@
 
             function playRound() {
                 //Prompt player to make their choice.
-                let playerChoice = window.prompt("Make your choice! Rock, Paper or Scissors?");  
+                let playerChoice = window.prompt("Make your choice! Rock, Paper or Scissors?");
                 
                 //Case insensitive comparison of user input. Maybe rewrite to a switch case?
                 if (playerChoice.toLowerCase() == "rock") {
@@ -33,37 +37,53 @@
                 //Relative to number element in choices array. May need reworking (0 = Rock, 1 = Paper, 2 = Scissors)
                 //Important: = vs == vs ===
                 if (playerChoice == "Rock" && (computerChoice === 0)) {
-                    return "It's a tie! You both chose Rock.";
+                    console.log("It's a tie! You both chose Rock.");
                 }               
                 else  if (playerChoice == "Rock" && (computerChoice === 1)) {
-                    return "You lose! Paper beats Rock.";
+                    console.log("You lose! Paper beats Rock.");
+                    computerScore++;
                 }
                 else if (playerChoice == "Rock" && (computerChoice === 2)) {
-                    return "You win! Rock beats Scissors.";
+                    console.log("You win! Rock beats Scissors.");
+                    playerScore++;
                 }
 
                 if (playerChoice == "Paper" && (computerChoice === 0)) {
-                    return "You win! Paper beats Rock.";
+                    console.log("You win! Paper beats Rock.");                    
+                    playerScore++;
                 }               
                 else  if (playerChoice == "Paper" && (computerChoice === 1)) {
-                    return "It's a tie! You both chose Paper.";
+                    console.log("It's a tie! You both chose Paper.");
                 }
                 else if (playerChoice == "Paper" && (computerChoice === 2)) {
-                    return "You lose! Scissors beats Paper.";
+                    console.log("You lose! Scissors beats Paper.");
+                    computerScore++;
                 }
 
                 if (playerChoice == "Scissors" && (computerChoice === 0)) {
-                    return "You lose! Rock beats Scissors.";
+                    console.log("You lose! Rock beats Scissors.");
+                    computerScore++;
                 }               
                 else  if (playerChoice == "Scissors" && (computerChoice === 1)) {
-                    return "You win! Scissors beats Paper.";
+                    console.log("You win! Scissors beats Paper.");                    
+                    playerScore++;
                 }
                 else if (playerChoice == "Scissors" && (computerChoice === 2)) {
-                    return "It's a tie! You both chose Scissors.";
+                    console.log("It's a tie! You both chose Scissors.");
                 }
             }
+
+            function game() {
+                const numRounds = 5;
+
+                for (let i = 0; i < numRounds; i++) {
+                    playRound();
+                    console.log("Your score: " + playerScore);
+                    console.log("Computer's score: " + computerScore);
+                }
+            }  
             
-            console.log(playRound());
+            game();
 
         </script>
     </body>
