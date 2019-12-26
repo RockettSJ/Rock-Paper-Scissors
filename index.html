@@ -25,50 +25,45 @@
                 }          
                 if (playerChoice.toLowerCase() == "scissors") {
                     playerChoice = "Scissors";
-                }                
+                }      
 
                 let computerChoice = computerPlay();
+
                 //Rewrite to switch case?
-                if (playerChoice == "Rock") {
-                    //Relative to number element in choices array. May need reworking
-                    if (computerChoice = 0) {
-                        return "It's a tie! You both chose Rock.";
-                    }
-                    if (computerChoice = 1) {
-                        return "You lose! Paper beats Rock.";
-                    }
-                    if (computerChoice = 2) {
-                        return "You win! Rock beats Scissors.";
-                    }
+                //Relative to number element in choices array. May need reworking (0 = Rock, 1 = Paper, 2 = Scissors)
+                //Important: = vs == vs ===
+                if (playerChoice == "Rock" && (computerChoice === 0)) {
+                    return "It's a tie! You both chose Rock.";
+                }               
+                else  if (playerChoice == "Rock" && (computerChoice === 1)) {
+                    return "You lose! Paper beats Rock.";
+                }
+                else if (playerChoice == "Rock" && (computerChoice === 2)) {
+                    return "You win! Rock beats Scissors.";
                 }
 
-                if (playerChoice == "Paper") {
-                    if (computerChoice = 0) {
-                        return "You win! Paper beats Rock.";
-                    }
-                    if (computerChoice = 1) {
-                        return "It's a tie! You both chose Paper.";
-                    }
-                    if (computerChoice = 2) {
-                        return "You lose! Scissors beats Paper.";
-                    }
+                if (playerChoice == "Paper" && (computerChoice === 0)) {
+                    return "You win! Paper beats Rock.";
+                }               
+                else  if (playerChoice == "Paper" && (computerChoice === 1)) {
+                    return "It's a tie! You both chose Paper.";
+                }
+                else if (playerChoice == "Paper" && (computerChoice === 2)) {
+                    return "You lose! Scissors beats Paper.";
                 }
 
-                if (playerChoice == "Scissors") {
-                    if (computerChoice = 0) {
-                        return "You lose! Rock beats Scissors.";
-                    }
-                    if (computerChoice = 1) {
-                        return "You win! Scissors beats Paper.";
-                    }
-                    if (computerChoice = 2) {
-                        return "It's a tie! You both chose Scissors.";
-                    }
-                }                
+                if (playerChoice == "Scissors" && (computerChoice === 0)) {
+                    return "You lose! Rock beats Scissors.";
+                }               
+                else  if (playerChoice == "Scissors" && (computerChoice === 1)) {
+                    return "You win! Scissors beats Paper.";
+                }
+                else if (playerChoice == "Scissors" && (computerChoice === 2)) {
+                    return "It's a tie! You both chose Scissors.";
+                }
             }
-
             
-            console.log(playRound())
+            console.log(playRound());
 
         </script>
     </body>
