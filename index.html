@@ -7,12 +7,12 @@
         <script>
 
             function computerPlay() {
-                let choices = ['Rock', 'Paper', 'Scissors'];
+                let choices = ["Rock", "Paper", "Scissors"];
                 let randomChoice = Math.floor(Math.random()*choices.length);
                 return randomChoice;
             }
 
-            function playRound(playerSelection, computerSelection) {
+            function playRound() {
                 //Prompt player to make their choice.
                 let playerChoice = window.prompt("Make your choice! Rock, Paper or Scissors?");  
                 
@@ -28,7 +28,47 @@
                 }                
 
                 let computerChoice = computerPlay();
+                //Rewrite to switch case?
+                if (playerChoice == "Rock") {
+                    //Relative to number element in choices array. May need reworking
+                    if (computerChoice = 0) {
+                        return "It's a tie! You both chose Rock.";
+                    }
+                    if (computerChoice = 1) {
+                        return "You lose! Paper beats Rock.";
+                    }
+                    if (computerChoice = 2) {
+                        return "You win! Rock beats Scissors.";
+                    }
+                }
+
+                if (playerChoice == "Paper") {
+                    if (computerChoice = 0) {
+                        return "You win! Paper beats Rock.";
+                    }
+                    if (computerChoice = 1) {
+                        return "It's a tie! You both chose Paper.";
+                    }
+                    if (computerChoice = 2) {
+                        return "You lose! Scissors beats Paper.";
+                    }
+                }
+
+                if (playerChoice == "Scissors") {
+                    if (computerChoice = 0) {
+                        return "You lose! Rock beats Scissors.";
+                    }
+                    if (computerChoice = 1) {
+                        return "You win! Scissors beats Paper.";
+                    }
+                    if (computerChoice = 2) {
+                        return "It's a tie! You both chose Scissors.";
+                    }
+                }                
             }
+
+            
+            console.log(playRound())
 
         </script>
     </body>
