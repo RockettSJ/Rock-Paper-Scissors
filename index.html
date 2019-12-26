@@ -24,12 +24,16 @@
                 if (playerChoice.toLowerCase() == "rock") {
                     playerChoice = "Rock";
                 }
-                if (playerChoice.toLowerCase() == "paper") {
+                else if (playerChoice.toLowerCase() == "paper") {
                     playerChoice = "Paper";
                 }          
-                if (playerChoice.toLowerCase() == "scissors") {
+                else if (playerChoice.toLowerCase() == "scissors") {
                     playerChoice = "Scissors";
-                }      
+                } 
+                else {
+                    alert("Please refresh the page and check your spelling!");
+                    throw new Error("Please refresh the page and check your spelling!");
+                }     
 
                 let computerChoice = computerPlay();
 
