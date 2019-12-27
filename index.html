@@ -36,10 +36,9 @@
                 }     
 
                 let computerChoice = computerPlay();
-
-                //Rewrite to switch case?
-                //Relative to number element in choices array. May need reworking (0 = Rock, 1 = Paper, 2 = Scissors)
-                //Important: = vs == vs ===
+                
+                // Relative to number element in choices array. May need reworking (0 = Rock, 1 = Paper, 2 = Scissors)               
+                // Important: = vs == vs ===
                 if (playerChoice == "Rock" && (computerChoice === 0)) {
                     console.log("It's a tie! You both chose Rock.");
                 }               
@@ -75,6 +74,54 @@
                 else if (playerChoice == "Scissors" && (computerChoice === 2)) {
                     console.log("It's a tie! You both chose Scissors.");
                 }
+
+                /*
+                switch(playerChoice) {
+                    case 'Rock':
+                        switch(computerChoice) {
+                            //Relative to number element in choices array. May need reworking (0 = Rock, 1 = Paper, 2 = Scissors)
+                            case 0:
+                                console.log("It's a tie! You both chose Rock.");
+                                break;
+                            case 1:
+                                console.log("You lose! Paper beats Rock.");
+                                computerScore++;
+                                break;
+                            case 2:
+                                console.log("You win! Rock beats Scissors.");
+                                playerScore++;
+                                break;
+                        }
+                    case 'Paper': 
+                        switch(computerChoice) {
+                            case 0: 
+                                console.log("You win! Paper beats Rock.");
+                                playerScore++;
+                                break;
+                            case 1: 
+                                console.log("It's a tie! You both chose Paper.");
+                                break;
+                            case 2: 
+                                console.log("You lose! Scissors beats Paper.");
+                                computerScore++
+                                break;
+                        }
+                    case 'Scissors': 
+                        switch(computerChoice) {
+                            case 0: 
+                                console.log("You lose! Rock beats Scissors.");
+                                computerScore++;
+                                break;
+                            case 1: 
+                                console.log("You win! Scissors beats Paper.");   
+                                playerScore++;
+                                break;
+                            case 2: 
+                                console.log("It's a tie! You both chose Scissors.");  
+                                break;
+                        }
+                }
+                */
             }
 
             function game() {
