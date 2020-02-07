@@ -8,6 +8,14 @@ body {
     padding-top: 20px;
 }
 
+#rounds {
+    padding: 20px;
+}
+
+#gameInfo {
+    padding: 20px;
+}
+
 .btn-choice {
     display: inline-block;
     border: none;
