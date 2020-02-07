@@ -81,29 +81,15 @@ playRound = playerChoice => {
     }
 
     displayInfo();
-    checkRounds();
-    //Give user time to read result, then continue
-    setTimeout(function() {
-        createInterface();
-    }, 1500);
-};
 
-checkRounds = () => {
-    if (numRounds == 6) {
-        if (playerScore > computerScore) {
-            instruction.innerHTML = "You won the game!";
-        } else if (computerScore > playerScore) {
-            instruction.innerHTML = "You lost the game!";
-        } else {
-            instruction.innerHTML = "It's a tie!";
-        }
-
+    //Note: Important to add conditional here, otherwise function would've repeated infinitely
+    if (numRounds < 6) {
+        //Give user time to read result, then continue
+        setTimeout(function() {
+            createInterface();
+        }, 1500);
+    } else {
         gameOver();
-
-        // Prevent game from continuing after 5 rounds
-        window.playRound() = function() {
-            return false;
-        };
     }
 };
 
@@ -114,6 +100,13 @@ displayInfo = () => {
 };
 
 gameOver = () => {
+    if (playerScore > computerScore) {
+        instruction.innerHTML = "You won the game!";
+    } else if (computerScore > playerScore) {
+        instruction.innerHTML = "You lost the game!";
+    } else {
+        instruction.innerHTML = "It's a tie!";
+    }
     roundDisplay.innerHTML = "Game over!";
     startBtn.style.display = "inline-block";
     startBtn.innerText = "Play again!";
