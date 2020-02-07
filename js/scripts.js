@@ -1,12 +1,13 @@
 const startBtn = document.getElementById("startBtn");
 const instruction = document.getElementById("instruction");
-const gameInfo = document.getElementById("gameInfo");
 const roundDisplay = document.getElementById("rounds");
-let numRounds = 1;
+let numRounds;
 let playerScore = 0;
 let computerScore = 0;
 
 startBtn.addEventListener("click", () => {
+    numRounds = 1;
+    startBtn.style.display = "none";
     createInterface();
 });
 
@@ -19,7 +20,6 @@ createInterface = () => {
     rockBtn.innerHTML = `<img src="images/rock.jpg" />`;
     paperBtn.innerHTML = `<img src="images/paper.jpg" />`;
     scissorsBtn.innerHTML = `<img src="images/scissors.jpg" />`;
-    startBtn.style.display = "none";
     numRounds++;
 };
 
@@ -38,7 +38,7 @@ scissorsBtn.addEventListener("click", () => {
     playRound("Scissors");
 });
 
-const clearButtons = () => {
+clearButtons = () => {
     rockBtn.innerHTML = "";
     paperBtn.innerHTML = "";
     scissorsBtn.innerHTML = "";
@@ -84,7 +84,7 @@ playRound = playerChoice => {
     checkRounds();
     //Give user time to read result, then continue
     setTimeout(function() {
-        nextRound();
+        createInterface();
     }, 1500);
 };
 
@@ -97,28 +97,30 @@ checkRounds = () => {
         } else {
             instruction.innerHTML = "It's a tie!";
         }
-        roundDisplay.innerHTML = "Game over!";
+
+        gameOver();
 
         // Prevent game from continuing after 5 rounds
         window.playRound() = function() {
             return false;
         };
-
-        numRounds = 0;
     }
 };
 
-nextRound = () => {
-    createInterface();
-};
-
 displayInfo = () => {
+    const gameInfo = document.getElementById("gameInfo");
     gameInfo.innerHTML = `
     You: ${playerScore} - CPU: ${computerScore}`;
 };
 
-function computerPlay() {
+gameOver = () => {
+    roundDisplay.innerHTML = "Game over!";
+    startBtn.style.display = "inline-block";
+    startBtn.innerText = "Play again!";
+};
+
+computerPlay = () => {
     const choices = ["Rock", "Paper", "Scissors"];
     let randomChoice = Math.floor(Math.random() * choices.length);
     return randomChoice;
-}
+};
