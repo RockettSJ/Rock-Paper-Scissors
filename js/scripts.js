@@ -7,6 +7,8 @@ let computerScore = 0;
 
 startBtn.addEventListener("click", () => {
     numRounds = 1;
+    playerScore = 0;
+    computerScore = 0;
     startBtn.style.display = "none";
     createInterface();
 });
