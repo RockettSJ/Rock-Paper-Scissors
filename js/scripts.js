@@ -1,12 +1,14 @@
 const startBtn = document.getElementById("startBtn");
 const instruction = document.getElementById("instruction");
 const roundDisplay = document.getElementById("rounds");
+const resultImg = document.getElementById("resultImg");
 let numRounds;
 let playerScore = 0;
 let computerScore = 0;
 
 startBtn.addEventListener("click", () => {
     numRounds = 1;
+    //Scores need to account for if player is replaying
     playerScore = 0;
     computerScore = 0;
     startBtn.style.display = "none";
@@ -23,6 +25,7 @@ createInterface = () => {
     rockBtn.innerHTML = `<img src="images/rock.jpg" />`;
     paperBtn.innerHTML = `<img src="images/paper.jpg" />`;
     scissorsBtn.innerHTML = `<img src="images/scissors.jpg" />`;
+    resultImg.style.display = "none";
     numRounds++;
 };
 
@@ -56,29 +59,35 @@ playRound = playerChoice => {
     } else if (playerChoice == "Rock" && computerChoice === 1) {
         instruction.innerHTML = "You lose! Paper beats Rock.";
         computerScore++;
+        showImage("rock-and-paper.jpg");
     } else if (playerChoice == "Rock" && computerChoice === 2) {
         instruction.innerHTML = "You win! Rock beats Scissors.";
         playerScore++;
+        showImage("rock-and-scissors.jpg");
     }
 
     //Player = Paper
     if (playerChoice == "Paper" && computerChoice === 0) {
         instruction.innerHTML = "You win! Paper beats Rock.";
         playerScore++;
+        showImage("rock-and-paper.jpg");
     } else if (playerChoice == "Paper" && computerChoice === 1) {
         instruction.innerHTML = "It's a tie! You both chose Paper.";
     } else if (playerChoice == "Paper" && computerChoice === 2) {
         instruction.innerHTML = "You lose! Scissors beats Paper.";
         computerScore++;
+        showImage("scissors-and-paper.jpg");
     }
 
     //Player = Scissors
     if (playerChoice == "Scissors" && computerChoice === 0) {
         instruction.innerHTML = "You lose! Rock beats Scissors.";
         computerScore++;
+        showImage("rock-and-scissors.jpg");
     } else if (playerChoice == "Scissors" && computerChoice === 1) {
         instruction.innerHTML = "You win! Scissors beats Paper.";
         playerScore++;
+        showImage("scissors-and-paper.jpg");
     } else if (playerChoice == "Scissors" && computerChoice === 2) {
         instruction.innerHTML = "It's a tie! You both chose Scissors.";
     }
@@ -90,7 +99,7 @@ playRound = playerChoice => {
         //Give user time to read result, then continue
         setTimeout(function() {
             createInterface();
-        }, 1500);
+        }, 2000);
     } else {
         gameOver();
     }
@@ -100,6 +109,11 @@ displayInfo = () => {
     const gameInfo = document.getElementById("gameInfo");
     gameInfo.innerHTML = `
     You: ${playerScore} - CPU: ${computerScore}`;
+};
+
+showImage = img => {
+    resultImg.style.display = "inline-block";
+    resultImg.innerHTML = `<img src="images/${img}">`;
 };
 
 gameOver = () => {
