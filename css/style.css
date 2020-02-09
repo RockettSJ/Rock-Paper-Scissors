@@ -6,11 +6,11 @@ body {
 
 #gameBoard {
     margin: 0 auto;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 #rounds {
-    padding: 20px;
+    padding: 5px;
 }
 
 #gameInfo {
