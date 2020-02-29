@@ -17,6 +17,11 @@ body {
     padding: 20px;
 }
 
+.choices {
+    display: flex;
+    justify-content: center;
+}
+
 .btn-choice {
     display: inline-block;
     border: none;
@@ -39,5 +44,29 @@ body {
 img {
     padding-top: 20px;
     width: 200px;
-    height: 200px;
+    height: auto;
+}
+
+@media screen and (max-width: 320px) {
+    img.responsive-img {
+        width: 10px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    img.responsive-img {
+        width: 95px;
+    }
+}
+
+@media screen and (max-width: 411px) {
+    img.responsive-img {
+        width: 95px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    img.responsive-img {
+        width: 95px;
+    }
 }

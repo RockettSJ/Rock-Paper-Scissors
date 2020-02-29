@@ -22,9 +22,9 @@ createInterface = () => {
     const scissorsBtn = document.getElementById("scissorsBtn");
     roundDisplay.innerHTML = `Round ${numRounds}`;
     instruction.innerHTML = "Make your choice!";
-    rockBtn.innerHTML = `<img src="images/rock.jpg" />`;
-    paperBtn.innerHTML = `<img src="images/paper.jpg" />`;
-    scissorsBtn.innerHTML = `<img src="images/scissors.jpg" />`;
+    rockBtn.innerHTML = `<img class="responsive-img" src="images/rock.jpg" />`;
+    paperBtn.innerHTML = `<img class="responsive-img" src="images/paper.jpg" />`;
+    scissorsBtn.innerHTML = `<img class="responsive-img" src="images/scissors.jpg" />`;
     resultImg.style.display = "none";
     numRounds++;
 };
