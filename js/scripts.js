@@ -126,7 +126,7 @@ gameOver = () => {
     }
     roundDisplay.innerHTML = "Game over!";
     startBtn.style.display = "inline-block";
-    startBtn.innerText = "Play again!";
+    startBtn.innerText = "PLAY AGAIN";
 };
 
 computerPlay = () => {
