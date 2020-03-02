@@ -17,14 +17,6 @@ body {
     padding: 20px;
 }
 
-.gameBtn {
-    padding: 16px 32px 18px;
-    font-family: "Sriracha", cursive;
-    background-color: #e1b12c;
-    cursor: pointer;
-    border-radius: 25%;
-}
-
 .btn-choice {
     display: inline-block;
     border: none;
